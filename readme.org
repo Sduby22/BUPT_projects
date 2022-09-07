@@ -1,3 +1,49 @@
 #+title: BUPT_Projects
 
 BUPT(Beijing University of Posts and Telecommunications) school projects index
+
+** The Course Design of Compiler Principle and Technology
+*** [[https://github.com/Sduby22/p2c][p2c: A translator from a subset of Pascal to C]]
++ Built using C++17/CMake
+  + Use [[https://github.com/catchorg/Catch2][Catch2]] for testing
++ Use [[http://dinosaur.compilertools.net/][Flex & Bison]] for Scanner and SLR Parser
++ Implemented a GUI wrapper using Electron
+  + Use [[https://emscripten.org/][Emscripten]] for a convenient WebAssembly library
+*** [[https://github.com/Sduby22/compiling_hw/tree/main/lab1-clexer][lab1-clexer: C scanner]]
++ 2 versions:
+  + A hand-written DFA in pure C
+  + flex version using regex matching
++ Implements yylex() API that resembles [[http://dinosaur.compilertools.net/#flex][flex]]
+*** [[https://github.com/Sduby22/compiling_hw/tree/main/lab2-yacc][lab2-parser: LR/LL parser for a given grammer]]
++ implemented LL(1)/SLR(1) parser for a given grammar in C
++ use flex for scanner
++ hard-coded LR DFA table
+
+** Operating Systems
+*** [[https://github.com/Sduby22/xv6-labs-2020][xv6: Course labs for MIT 6.S081: Operating System Engineering]]
+The labs includes:
++ use syscalls to write user-space utils like ~sleep~, ~xargs~, ~find~
++ implements new syscalls including ~mmap()~, ~symlink()~
++ implements enhancements including ~copy on write~, ~lazy allocation~
+
+** Computer Networks
+*** [[https://github.com/Sduby22/Lab1-Linux][Data link layer protocol design for a high-latency, noisy channel]]
++ designed 3 versions of protocols: ~stop and wait~, ~go back n~, ~selective repeat~
++ optimized version ~selective repeat~ reached theoretical value of efficiency
+  + optimized by carefully select window size and max retries
+  + designed a special NAK strategy to reduce latency
+
+*** DNS relay server in C
++ supports ~A~, ~AAAA~ local query and remote DNS server relay, which resembles ~dnsmasq~ (but without dhcp server functionality)
++ UDP query only. Implemented addr decompression but didn't implement compression
++ Multithreading using ~pthread~ library
+
+** OOP: C++
+*** [[https://github.com/Sduby22/cpp-emarket][cpp-emarket: A server-client cli emarket emulator]]
++ built with C++14+CMake
+  + taking advantages of OOP & templates & RAII
+  + parallel with ~std::thread~
++ interactive cli interface
++ Doc generation with [[https://doxygen.nl/][Doxygen]]
++ use SQLite3 with [[https://github.com/fnc12/sqlite_orm][SQLite ORM]]
++ use TCP sockets for connection(using http is not allowed)
